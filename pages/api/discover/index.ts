@@ -37,20 +37,20 @@ export default async function handler(
 
 
         // 3. Filtrer les champs pour ne conserver que ceux pertinents pour l'entité Movie
-        const movie: Movies[] = movieData.results.map((item: any) => ({
+        const movie: Movies[] = movieData.results.map((item: Movies) => ({
             id: item.id,
             title: item.title,
             overview: item.overview,
-            releaseDate: item.release_date,  // Assurez-vous que le champ correspond bien à celui attendu par votre interface
-            posterPath: item.poster_path,
+            releaseDate: item.releaseDate,  // Assurez-vous que le champ correspond bien à celui attendu par votre interface
+            posterPath: item.posterPath,
         }));
 
-        const show: TVShows[] = showData.results.map((item: any) => ({
+        const show: TVShows[] = showData.results.map((item: TVShows) => ({
             id: item.id,
             name: item.name,
             overview: item.overview,
-            releaseDate: item.release_date,  // Assurez-vous que le champ correspond bien à celui attendu par votre interface
-            posterPath: item.poster_path,
+            releaseDate: item.releaseDate,  // Assurez-vous que le champ correspond bien à celui attendu par votre interface
+            posterPath: item.posterPath,
         }));
 
         // 4. Envoyer la réponse avec les films filtrés
@@ -59,5 +59,6 @@ export default async function handler(
     } catch (error) {
         // Gérer les erreurs et envoyer une réponse appropriée
         res.status(500).json({ error: 'Erreur interne du serveur' });
+        console.error(error);
     }
 }

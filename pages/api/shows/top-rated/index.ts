@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { Movies } from '../../../entities/Movies';
+import { TVShows } from '@/pages/entities/TVShows';
 
 const url = 'https://api.themoviedb.org/3/tv/top_rated?language=fr-FR&page=1';
 const options = {
@@ -28,12 +29,12 @@ export default async function handler(
         const data = await response.json();
 
         // 3. Filtrer les champs pour ne conserver que ceux pertinents pour l'entité Movie
-        const movies: Movies[] = data.results.map((item: any) => ({
+        const movies: Movies[] = data.results.map((item: TVShows) => ({
             id: item.id,
             name: item.name,
             overview: item.overview,
-            releaseDate: item.release_date,  // Assurez-vous que le champ correspond bien à celui attendu par votre interface
-            posterPath: item.poster_path,
+            releaseDate: item.releaseDate,  // Assurez-vous que le champ correspond bien à celui attendu par votre interface
+            posterPath: item.posterPath,
         }));
 
         // 4. Envoyer la réponse avec les films filtrés

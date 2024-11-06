@@ -27,12 +27,12 @@ export default async function handler(
         const data = await response.json();
 
         // 3. Filtrer les champs pour ne conserver que ceux pertinents pour l'entité Movie
-        const movies: Movies[] = data.results.map((item: any) => ({
+        const movies: Movies[] = data.results.map((item: Movies) => ({
             id: item.id,
             title: item.title,
             overview: item.overview,
-            releaseDate: item.release_date,  // Assurez-vous que le champ correspond bien à celui attendu par votre interface
-            posterPath: item.poster_path,
+            releaseDate: item.releaseDate,  // Assurez-vous que le champ correspond bien à celui attendu par votre interface
+            posterPath: item.posterPath,
         }));
 
         // 4. Envoyer la réponse avec les films filtrés
