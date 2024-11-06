@@ -1,6 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { Movies } from '../../../entities/Movies';
-import { TVShows } from '@/pages/entities/TVShows';
+import { TVShows } from '@/entities/TVShows';
 
 const url = 'https://api.themoviedb.org/3/tv/on_the_air?language=fr-FR&page=1';
 const options = {
@@ -13,7 +12,7 @@ const options = {
 
 export default async function handler(
     req: NextApiRequest,
-    res: NextApiResponse<Movies[] | { error: string }>
+    res: NextApiResponse<TVShows[] | { error: string }>
 ) {
     try {
 
@@ -29,7 +28,7 @@ export default async function handler(
         const data = await response.json();
 
         // 3. Filtrer les champs pour ne conserver que ceux pertinents pour l'entité Movie
-        const movies: Movies[] = data.results.map((item: TVShows) => ({
+        const movies: TVShows[] = data.results.map((item: TVShows) => ({
             id: item.id,
             name: item.name,
             overview: item.overview,

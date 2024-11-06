@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { Movies } from '../../../entities/Movies';
-import { TVShows } from '@/pages/entities/TVShows';
+import { Movies } from '../../../../entities/Movies';
+import { TVShows } from '@/entities/TVShows';
 
 const url = 'https://api.themoviedb.org/3/tv/top_rated?language=fr-FR&page=1';
 const options = {

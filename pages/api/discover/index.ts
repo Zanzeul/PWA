@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { Movies } from '../../entities/Movies';
-import { TVShows } from '../../entities/TVShows';
+import { Movies } from '../../../entities/Movies';
+import { TVShows } from '../../../entities/TVShows';
 
 const movie_url = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=fr-FR&page=1&sort_by=popularity.desc';
 const show_url = 'https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=fr-FR&page=1&sort_by=popularity.desc'

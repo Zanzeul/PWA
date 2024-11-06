@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { TVShows } from '../../../entities/TVShows';
+import { TVShows } from '../../../../entities/TVShows';
 
 const url = 'https://api.themoviedb.org/3/tv/popular?language=fr-FR&page=1';
 const options = {
