@@ -42,5 +42,6 @@ export default async function handler(
     } catch (error) {
         // Gérer les erreurs et envoyer une réponse appropriée
         res.status(500).json({ error: 'Erreur interne du serveur' });
+        console.error(error);
     }
 }
